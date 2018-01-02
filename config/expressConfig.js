@@ -20,6 +20,13 @@ module.exports = (app) => {
   app.use(bodyParser.json())
 
   app.use('/api', apiRouter)
+  
+  app.use('/*', (req, res) => {
+    res.send({
+      Status : "Invalid Route",
+      Message : "Please use the defined routes only"
+    })
+  })
 
 
 
